@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @RestController
-@RequestMapping()
+@RequestMapping("/")
 public class ArrivalsController {
 
     private static final Logger log = LoggerFactory.getLogger(ArrivalsController.class);
@@ -25,7 +25,7 @@ public class ArrivalsController {
         this.arrivalsService = arrivalsService;
     }
 
-    @GetMapping()
+    @GetMapping("/arrivals")
     public ResponseEntity<Map<String, Object>> getAllStops() {
         Map<String, Stop> stops = arrivalsService.getAllStops();
         long runCount = arrivalsService.getRunCount();

@@ -72,7 +72,7 @@ function MapContent({ arrivals, onStationSelect }: TransitMapProps) {
         const popupContent = `
           <div class="mapPopup">
             <h3>${station.name}</h3>
-            <p>Average arrival wait times:</p>
+            <p>Average wait time for arrivals:</p>
             <ul>Northbound
               ${northboundListItems}
             </ul>

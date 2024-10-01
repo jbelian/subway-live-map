@@ -50,7 +50,7 @@ const queryClient = new QueryClient({
 });
 
 const fetchArrivals = async (): Promise<Arrivals> => {
-  const response = await fetch(`${import.meta.env.VITE_API_URL}`);
+  const response = await fetch(`/api/arrivals`);
   if (!response.ok) {
     throw new Error(`Network response was not ok: ${response.status} ${response.statusText}`);
   }

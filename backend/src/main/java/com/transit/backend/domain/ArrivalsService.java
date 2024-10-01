@@ -42,7 +42,7 @@ public class ArrivalsService {
     }
 
     public Map<String, Stop> getAllStops() {
-        return new HashMap<>(allStops); // Return a copy to ensure thread safety
+        return new HashMap<>(allStops);
     }
 
     @Scheduled(fixedRate = 30000)
@@ -132,7 +132,6 @@ public class ArrivalsService {
                         Arrival newArrival = new Arrival(tripId, lineId, color, destination, arrivalTime);
                         newArrival.setMovingAverage(waitTime);
                         platformArrivals.put(lineId, newArrival);
-                        log.info("New/Updated arrival for line: {}, tripId: {}, arrivalTime: {}", lineId, tripId, arrivalTime);
                     } else if (arrivalTime < existingArrival.getCurrentArrivalTime()) {
                         // if an earlier arrival time is found, regardless of tripId, update the arrival time
                         existingArrival.setTripId(tripId);

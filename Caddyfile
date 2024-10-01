@@ -1,7 +1,27 @@
-:80 {
-    encode gzip
-    root * /usr/share/caddy
-    file_server
-    try_files {path} /index.html
-    reverse_proxy /api/* backend:8090
+{
+  email name@example.com
+  acme_ca https://acme-v02.api.letsencrypt.org/directory
+}
+
+mtamap.xyz {
+  encode gzip
+
+  handle /api/* {
+    uri strip_prefix /api
+    reverse_proxy backend:8090
+  }
+
+  handle /transiter/* {
+    reverse_proxy transiter:8080
+  }
+
+  handle /* {
+    reverse_proxy frontend:80
+  }
+
+  log {
+    output stdout
+    format console
+    level DEBUG
+  }
 }

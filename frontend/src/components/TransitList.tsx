@@ -84,8 +84,6 @@ const PlatformComponent = ({ platform }: { platform: ChildStop }) => {
 };
 
 const LineArrivalComponent = ({ arrival, lineId, platformId }: { arrival: LineArrival; lineId: string; platformId: string }) => {
-    console.log(`Rendering LineArrivalComponent: ${lineId} at ${platformId} with arrival time ${arrival.currentArrivalTime}`);
-
     const textColor = arrival.color === 'FCCC0A' ? '#202010' : '#FEFEF0';
     const backgroundColor = arrival.color || '7C878E';
 
